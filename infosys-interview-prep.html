@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infosys Java Full Stack Developer — Interview Prep Guide</title>
+<style>
+  body{
+    background:#0f1420;
+    color:#e6e9f0;
+    font-family:'Segoe UI', Arial, sans-serif;
+    line-height:1.75;
+    margin:0;
+    padding:60px 20px;
+  }
+  .container{
+    max-width:820px;
+    margin:0 auto;
+    background:#161c2c;
+    border:1px solid #2a3350;
+    border-radius:8px;
+    padding:50px 56px;
+  }
+  h1{
+    font-size:26px;
+    color:#d4a24c;
+    margin-bottom:6px;
+    border-bottom:2px solid #2a3350;
+    padding-bottom:16px;
+  }
+  .subtitle{
+    font-size:14px;
+    color:#8b93ac;
+    margin-bottom:34px;
+  }
+  h2{
+    font-size:20px;
+    color:#4fd1c5;
+    margin-top:44px;
+    margin-bottom:14px;
+    padding-bottom:8px;
+    border-bottom:1px solid #2a3350;
+  }
+  h3{
+    font-size:16px;
+    color:#e6e9f0;
+    margin-top:22px;
+    margin-bottom:8px;
+  }
+  p{
+    font-size:15.5px;
+    color:#d6dae4;
+    margin-bottom:16px;
+  }
+  ul, ol{
+    margin-bottom:18px;
+    padding-left:24px;
+  }
+  li{
+    font-size:15.5px;
+    color:#d6dae4;
+    margin-bottom:8px;
+  }
+  code{
+    background:#1f2740;
+    color:#d4a24c;
+    padding:2px 6px;
+    border-radius:4px;
+    font-family:'Consolas', 'Courier New', monospace;
+    font-size:13.5px;
+  }
+  strong{color:#4fd1c5;}
+  em{color:#8b93ac;}
+  hr{
+    border:none;
+    border-top:1px solid #2a3350;
+    margin:36px 0;
+  }
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin-bottom:20px;
+    font-size:14.5px;
+  }
+  th, td{
+    border:1px solid #2a3350;
+    padding:10px 14px;
+    text-align:left;
+  }
+  th{
+    background:#1f2740;
+    color:#d4a24c;
+  }
+  td{color:#d6dae4;}
+  a{color:#4fd1c5;}
+  .tip{
+    background:#1f2740;
+    border-left:3px solid #d4a24c;
+    padding:16px 20px;
+    border-radius:0 6px 6px 0;
+    margin-top:20px;
+  }
+  .tip strong{color:#d4a24c;}
+</style>
+</head>
+<body>
+  <div class="container">
+
+    <h1>Infosys Java Full Stack Developer — Interview Prep Guide</h1>
+    <div class="subtitle">Compiled from real 2025–2026 Infosys interview reports (Glassdoor, Medium, InterviewEra, PrepInsta) plus standard core-Java/Spring fundamentals. Typical process: 1–2 technical rounds (Java + Spring + a coding problem) → sometimes a frontend round (JS/Angular/React) → HR round.</div>
+
+    <hr>
+
+    <h2>1. Actual Questions Reported by Recent Infosys Candidates</h2>
+    <p><strong>Backend round (2025 reports):</strong></p>
+    <ul>
+      <li>Write the structure of a REST API. What is Spring Boot Actuator? What does the Spring <code>Initializer</code> do?</li>
+      <li>What is an Entity (JPA)? How do you improve API performance?</li>
+      <li>What is single sign-on / token-based authentication vs authorization?</li>
+      <li>How do you do unit testing in your project? Which annotations (<code>@SpringBootTest</code>, <code>@MockBean</code>, <code>@WebMvcTest</code>, JUnit 5 + Mockito)?</li>
+      <li><strong>Coding:</strong> Given a string, print the count of repeating characters using Java 8+ Streams (<code>Collectors.groupingBy</code>).</li>
+      <li>How does <code>HashMap</code> work internally? (hashing, buckets, collision chaining, load factor/resize)</li>
+      <li>What is an API Gateway?</li>
+      <li>Explain your project's architecture (microservices, CI/CD, tech stack).</li>
+      <li>How do microservices communicate — sync (REST) vs async (Kafka/SQS)? What is service discovery?</li>
+      <li>What is the Circuit Breaker pattern? (Resilience4j / Hystrix)</li>
+    </ul>
+
+    <p><strong>Frontend round (if full stack — Angular or React, varies by panel):</strong></p>
+    <ul>
+      <li>Pipes, component lifecycle, lazy loading, how to consume an API in the frontend (Angular)</li>
+      <li>Hoisting, closures, <code>==</code> vs <code>===</code>, <code>var</code>/<code>let</code>/<code>const</code>, event loop &amp; call stack, <code>map</code>/<code>filter</code>/<code>reduce</code>, shallow vs deep copy, JS memory management/GC (JavaScript)</li>
+      <li>Conditional rendering, list rendering, lifecycle methods, state management (<code>useState</code>/<code>useReducer</code>/Context/Redux), React Router, async/await (React)</li>
+    </ul>
+
+    <p><strong>HR/behavioral:</strong> Tell me about yourself, why Infosys, strengths/weaknesses, willingness to relocate, project ownership stories.</p>
+
+    <hr>
+
+    <h2>2. Core Java — Theory</h2>
+    <ul>
+      <li>OOP pillars: encapsulation, inheritance, polymorphism (compile-time vs runtime), abstraction</li>
+      <li><code>abstract class</code> vs <code>interface</code>; default &amp; static methods in interfaces (Java 8+)</li>
+      <li><code>==</code> vs <code>.equals()</code>; contract between <code>equals()</code> and <code>hashCode()</code></li>
+      <li>String pool, why <code>String</code> is immutable, <code>String</code> vs <code>StringBuilder</code> vs <code>StringBuffer</code></li>
+      <li><code>final</code>, <code>finally</code>, <code>finalize()</code> differences</li>
+      <li>Access modifiers; method overloading vs overriding; <code>super</code>/<code>this</code></li>
+      <li>Static vs instance members; static initializer blocks; static nested class vs inner class</li>
+      <li>Constructors: default, parameterized, constructor chaining, copy constructor</li>
+      <li>Exception hierarchy: checked vs unchecked, <code>try-with-resources</code>, custom exceptions, <code>throw</code> vs <code>throws</code></li>
+      <li>Wrapper classes, autoboxing/unboxing, integer caching (<code>-128..127</code>)</li>
+      <li>Java memory model: stack vs heap, method area, PermGen/Metaspace</li>
+      <li>Garbage collection: generational GC (Eden → Survivor → Old Gen), minor vs major/full GC, G1GC, when <code>OutOfMemoryError</code> happens</li>
+      <li><code>Object</code> class methods: <code>equals</code>, <code>hashCode</code>, <code>toString</code>, <code>clone</code>, <code>wait/notify</code></li>
+      <li>Serialization: <code>Serializable</code>, <code>transient</code>, <code>serialVersionUID</code></li>
+      <li>Java 8+ features: lambdas, functional interfaces, Streams API, <code>Optional</code>, method references, default/static interface methods</li>
+      <li>Java 9–17+ highlights (if asked): modules, <code>var</code>, records, sealed classes, pattern matching, text blocks, switch expressions</li>
+    </ul>
+
+    <h2>3. Collections Framework</h2>
+    <ul>
+      <li><code>List</code> vs <code>Set</code> vs <code>Map</code> vs <code>Queue</code>; <code>ArrayList</code> vs <code>LinkedList</code> (internal structure, when to use which)</li>
+      <li><code>HashMap</code> internal working: hashing, bucket array, <code>equals/hashCode</code>, treeification (Java 8+ red-black tree on collision), resize/rehashing, load factor</li>
+      <li><code>HashMap</code> vs <code>Hashtable</code> vs <code>ConcurrentHashMap</code> vs <code>TreeMap</code> vs <code>LinkedHashMap</code></li>
+      <li><code>HashSet</code> vs <code>TreeSet</code> vs <code>LinkedHashSet</code></li>
+      <li><code>Comparable</code> vs <code>Comparator</code></li>
+      <li><code>Iterator</code> vs <code>ListIterator</code>; fail-fast vs fail-safe iterators; <code>ConcurrentModificationException</code></li>
+      <li><code>ArrayDeque</code>, <code>PriorityQueue</code></li>
+      <li>Time complexity of common operations across these collections</li>
+    </ul>
+
+    <h2>4. Multithreading &amp; Concurrency</h2>
+    <ul>
+      <li>Process vs thread; creating threads (<code>Thread</code> class vs <code>Runnable</code> vs <code>Callable</code>)</li>
+      <li>Thread lifecycle: new, runnable, running, blocked/waiting, terminated</li>
+      <li><code>synchronized</code> (method vs block), intrinsic locks, <code>volatile</code> keyword</li>
+      <li><code>wait()</code>, <code>notify()</code>, <code>notifyAll()</code></li>
+      <li><code>ExecutorService</code>, thread pools, <code>Future</code>/<code>CompletableFuture</code></li>
+      <li><code>java.util.concurrent</code>: <code>ConcurrentHashMap</code>, <code>CountDownLatch</code>, <code>Semaphore</code>, <code>ReentrantLock</code></li>
+      <li>Deadlock, race condition, how to avoid them</li>
+      <li>Producer-consumer problem (classic coding question)</li>
+    </ul>
+
+    <h2>5. Exception Handling</h2>
+    <ul>
+      <li>Exception hierarchy: <code>Throwable</code> → <code>Error</code> / <code>Exception</code> → checked/unchecked</li>
+      <li>Try-catch-finally flow, multi-catch, try-with-resources</li>
+      <li>Custom exception design, best practices for exception handling in REST APIs (<code>@ControllerAdvice</code>, <code>@ExceptionHandler</code>)</li>
+    </ul>
+
+    <hr>
+
+    <h2>6. Spring / Spring Boot — Theory</h2>
+    <ul>
+      <li>Spring core: IoC container, Dependency Injection (constructor vs setter vs field), Bean lifecycle, <code>@Component</code>/<code>@Service</code>/<code>@Repository</code>/<code>@Controller</code></li>
+      <li>Bean scopes: singleton, prototype, request, session</li>
+      <li><code>@Autowired</code>, <code>@Qualifier</code>, <code>@Primary</code></li>
+      <li>Spring Boot: auto-configuration, starters, <code>@SpringBootApplication</code>, embedded servers, <code>application.properties</code>/<code>yml</code>, profiles</li>
+      <li><strong>Actuator</strong> — health checks, metrics, monitoring endpoints (this came up directly in a real Infosys interview)</li>
+      <li>Spring Initializr — bootstrapping a project</li>
+      <li>Building REST APIs: <code>@RestController</code>, <code>@RequestMapping</code>, <code>@GetMapping/@PostMapping/@PutMapping/@DeleteMapping</code>, <code>@PathVariable</code>, <code>@RequestParam</code>, <code>@RequestBody</code>, <code>ResponseEntity</code></li>
+      <li>Validation (<code>@Valid</code>, <code>@NotNull</code>, etc.), global exception handling</li>
+      <li>Spring Data JPA: <code>@Entity</code>, <code>@Id</code>, <code>@OneToMany</code>/<code>@ManyToOne</code>/<code>@ManyToMany</code>, repositories (<code>JpaRepository</code>), custom queries (<code>@Query</code>), lazy vs eager loading, N+1 query problem</li>
+      <li>Transactions: <code>@Transactional</code>, propagation, isolation levels</li>
+      <li>Security: Spring Security basics, JWT-based authentication, OAuth2, filters</li>
+      <li>Caching: <code>@Cacheable</code>, Redis integration basics</li>
+      <li>Testing: JUnit 5, Mockito, <code>@SpringBootTest</code>, <code>@WebMvcTest</code>, <code>@DataJpaTest</code>, <code>@MockBean</code></li>
+    </ul>
+
+    <h2>7. Microservices &amp; System Design (asked heavily at Infosys)</h2>
+    <ul>
+      <li>Monolith vs microservices — trade-offs</li>
+      <li>Service discovery (Eureka), API Gateway (Spring Cloud Gateway/Zuul) — purpose: routing, load balancing, auth, rate limiting</li>
+      <li>Config server, centralized configuration</li>
+      <li>Inter-service communication: synchronous (REST, Feign client) vs asynchronous (Kafka, RabbitMQ, SQS)</li>
+      <li>Circuit Breaker pattern (Resilience4j/Hystrix), retry, fallback, bulkhead</li>
+      <li>Distributed tracing (Sleuth/Zipkin), centralized logging (ELK)</li>
+      <li>Idempotency, eventual consistency, saga pattern (basic awareness)</li>
+      <li>Docker &amp; Kubernetes basics — containerization, pods, deployments (good to know at a high level)</li>
+      <li>CI/CD pipeline overview</li>
+    </ul>
+
+    <h2>8. Database / SQL</h2>
+    <ul>
+      <li>SQL joins (inner/left/right/full), GROUP BY/HAVING, subqueries vs joins</li>
+      <li>Indexing — how it speeds up reads, trade-off on writes</li>
+      <li>Normalization (1NF–3NF), ACID properties</li>
+      <li>Primary key vs foreign key vs unique key</li>
+      <li>Query optimization basics, <code>EXPLAIN</code> plan awareness</li>
+      <li>SQL vs NoSQL, when to use MongoDB/Redis vs RDBMS</li>
+    </ul>
+
+    <hr>
+
+    <h2>9. Likely Coding Questions (practice these in Java)</h2>
+
+    <h3>Strings</h3>
+    <ol>
+      <li>Count repeating characters in a string using Java 8 Streams (<code>Collectors.groupingBy</code> + <code>Collectors.counting()</code>) — <em>asked directly at Infosys</em></li>
+      <li>Check if a string is a palindrome</li>
+      <li>Reverse a string / reverse words in a sentence</li>
+      <li>Find first non-repeating character</li>
+      <li>Check if two strings are anagrams</li>
+      <li>Longest substring without repeating characters</li>
+    </ol>
+
+    <h3>Arrays</h3>
+    <ol start="7">
+      <li>Find duplicates in an array</li>
+      <li>Find the missing number in a range</li>
+      <li>Two Sum problem</li>
+      <li>Rotate an array by k positions</li>
+      <li>Find the largest/second-largest element</li>
+      <li>Merge two sorted arrays</li>
+    </ol>
+
+    <h3>Collections/HashMap</h3>
+    <ol start="13">
+      <li>Word frequency counter using <code>HashMap</code></li>
+      <li>Group anagrams together</li>
+      <li>Implement your own simple <code>HashMap</code> (explain bucket + collision logic) — asked as a theory follow-up to "how does HashMap work"</li>
+    </ol>
+
+    <h3>Linked List</h3>
+    <ol start="16">
+      <li>Reverse a linked list</li>
+      <li>Detect a cycle (Floyd's algorithm)</li>
+      <li>Find the middle node</li>
+    </ol>
+
+    <h3>OOP / Design</h3>
+    <ol start="19">
+      <li>Implement Singleton pattern (thread-safe, e.g. double-checked locking or enum-based)</li>
+      <li>Design a simple LRU Cache using <code>LinkedHashMap</code></li>
+      <li>Producer-Consumer using <code>wait/notify</code> or <code>BlockingQueue</code></li>
+    </ol>
+
+    <h3>SQL</h3>
+    <ol start="22">
+      <li>Second-highest salary query</li>
+      <li>Find duplicate rows</li>
+      <li>Department-wise max salary using GROUP BY</li>
+    </ol>
+
+    <h3>Java 8 Streams (Infosys leans on these)</h3>
+    <ol start="25">
+      <li>Sort a list of objects by a field using <code>Comparator</code> + Streams</li>
+      <li>Convert a <code>List&lt;Object&gt;</code> to a <code>Map</code> using <code>Collectors.toMap</code></li>
+      <li>Filter and transform a list in one pipeline</li>
+    </ol>
+
+    <hr>
+
+    <h2>10. Frontend (if the role is truly full stack)</h2>
+    <p>Know at least one framework deeply (Angular or React — match whatever is in your resume/project):</p>
+    <ul>
+      <li><strong>Angular:</strong> components, modules, services, dependency injection, pipes, <code>@Input</code>/<code>@Output</code>, lifecycle hooks, RxJS observables, lazy loading, routing, HttpClient for API calls</li>
+      <li><strong>React:</strong> hooks (<code>useState</code>, <code>useEffect</code>, <code>useReducer</code>, <code>useContext</code>), component lifecycle, conditional/list rendering, state management (Context/Redux), React Router, calling APIs with <code>fetch</code>/<code>axios</code></li>
+      <li><strong>JavaScript core:</strong> hoisting, closures, <code>==</code> vs <code>===</code>, <code>var/let/const</code>, event loop, <code>map/filter/reduce</code>, promises/async-await, shallow vs deep copy</li>
+    </ul>
+
+    <hr>
+
+    <h2>11. How to Prepare (1-week plan)</h2>
+    <table>
+      <tr><th>Days</th><th>Focus</th></tr>
+      <tr><td>1–2</td><td>Core Java + Collections + Multithreading theory, revise with your own words</td></tr>
+      <tr><td>3</td><td>Spring Boot + Spring Data JPA + REST API design</td></tr>
+      <tr><td>4</td><td>Microservices concepts (Gateway, Circuit Breaker, Kafka basics) + SQL practice</td></tr>
+      <tr><td>5</td><td>Coding practice — the list above, in Java, on paper/whiteboard style (no IDE autocomplete)</td></tr>
+      <tr><td>6</td><td>Frontend framework revision + mock explain of your own project architecture end-to-end</td></tr>
+      <tr><td>7</td><td>Mock interview / rehearse "tell me about yourself" + project deep-dive + revise weak spots</td></tr>
+    </table>
+
+    <div class="tip">
+      <strong>Tip specific to Infosys panels:</strong> they weight <em>practical, production-level</em> understanding over pure algorithmic speed — be ready to explain <em>why</em> you made a design choice in your own project (why this DB, why this pattern, how you'd scale it), not just recite definitions.
+    </div>
+
+    <p style="margin-top:30px;">Good luck with the interview!</p>
+
+  </div>
+</body>
+</html>
